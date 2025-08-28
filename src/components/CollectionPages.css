@@ -1,0 +1,285 @@
+/* --------- FOOTWEAR PAGE --------- */
+.footwear-page {
+  background: #0b1c3a;
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+}
+
+.footwear-page h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #ffcc00;
+}
+
+.footwear-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.footwear-card {
+  background: #142850;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 220px;
+  position: relative;   /* ✅ wishlist ke liye */
+}
+
+.footwear-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+.footwear-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.footwear-card h2 {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+.price {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.rating {
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
+  color: #ffdd57;
+  letter-spacing: 2px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Buy Now */
+.buy-btn {
+  background: #ff5722;
+  color: white;
+}
+
+.buy-btn:hover {
+  background: #e64a19;
+  transform: scale(1.05);
+}
+
+/* Add to Cart */
+.cart-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.cart-btn:hover {
+  background: #388e3c;
+  transform: scale(1.05);
+}
+
+/* --------- CLOTHING PAGE --------- */
+.clothing-page {
+  background: #1a1a2e;
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+}
+
+.clothing-page h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #ffcc00;
+}
+
+.clothing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.clothing-card {
+  background: #162447;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 220px;
+  position: relative;   /* ✅ wishlist ke liye */
+}
+
+.clothing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+.clothing-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.clothing-card h2 {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* --------- ACCESSORIES PAGE --------- */
+.accessories-page {
+  background: #101820;
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+}
+
+.accessories-page h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #ffcc00;
+}
+
+.accessories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.accessories-card {
+  background: #1c2a3a;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 220px;
+  position: relative;   /* ✅ wishlist ke liye */
+}
+
+.accessories-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+.accessories-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.accessories-card h2 {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* --------- BAGS PAGE --------- */
+.bags-page {
+  background: #0f2027;
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+}
+
+.bags-page h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #ffcc00;
+}
+
+.bags-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.bags-card {
+  background: #203a43;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 220px;
+  position: relative;   /* ✅ wishlist ke liye */
+}
+
+.bags-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+.bags-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.bags-card h2 {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* --------- COMMON WISHLIST (❤️) --------- */
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  color: gray;
+  transition: color 0.3s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.heart {
+  color: gray;
+}
+
+.heart.active {
+  color: red;
+}

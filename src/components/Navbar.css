@@ -1,0 +1,96 @@
+/* Navbar main container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent; /* match page background */
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: none !important;
+  border: none !important;
+  margin-top: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Logo styling (Text logo) */
+.logo {
+  font-size: 1.2rem; /* Increased size */
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar logo image */
+.logo-img {
+  height: 80px; /* Increased size */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* Navigation links (Right side icons) */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: flex-start; /* shift icons upward */
+  margin-top: -10px; /* thoda aur upar kheenchne ke liye */
+}
+
+/* Links + icon styling */
+.nav-links li a {
+  color: #ffffff; /* icons visible */
+  font-size: 1.1rem; /* slightly bigger text */
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+/* Hover + Active link style */
+.nav-links li a:hover,
+.nav-links li.active a {
+  color: #dcdbd9; /* Vastraalene accent color */
+  font-weight: 600;
+}
+
+/* React Icons sizing */
+.nav-icon {
+  width: 28px; /* bigger icons */
+  height: 28px;
+}
+
+/* Remove all borders/outlines */
+.navbar,
+.nav-links li,
+.nav-links li a,
+.nav-links li a:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ✅ Login button style */
+.login-btn {
+  padding: 6px 14px;
+  background-color: #ffffff;
+  color: #000000 !important;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #f2f2f2;
+  color: #111111 !important;
+}

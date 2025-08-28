@@ -1,0 +1,141 @@
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full screen height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: transparent; /* No background color */
+}
+
+/* --- Logo Wrapper --- */
+ .logo-wrapper {
+  position: absolute;
+  top: 20px;   /* page ke upar se distance */
+   left: 20px;  /* left se distance */
+   z-index: 5;
+} 
+
+ .logo-wrapper img {
+  height: 80px;   
+   width: auto;    
+   display: block;
+} 
+
+.banner-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 102%; /* Zoom to remove black edges */
+  height: 102%;
+  object-fit: cover;
+  z-index: 1;
+  animation: fadeIn 1.5s ease-in-out;
+  border: none;
+  background: transparent;
+  display: block;
+  vertical-align: top;
+}
+
+video {
+  vertical-align: top;
+  display: block;
+  background: transparent;
+  border: none;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  z-index: 2;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(192, 179, 179, 0.4);
+}
+
+.banner-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.banner-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: #ff4081;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.banner-btn:hover {
+  background: #e73370;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+  .banner-content p {
+    font-size: 1rem;
+  }
+  .logo-wrapper img {
+    height: 60px; /* small screen par logo chhota */
+  }
+}
+
+
+
+
+
+/* ✅ Banner page ke andar right side heart icon ko hide karna */
+/* .banner .wishlist-icon,
+.banner .wishlist-btn,
+.banner .fa-heart {
+  display: none !important;
+} */
+
+/* Agar icon fixed position se aa raha hai */
+/* .wishlist-icon {
+  display: none !important;
+} */

@@ -1,0 +1,178 @@
+.user-profile-container {
+  display: flex;
+  height: 100vh;
+  background-image: url('https://media.istockphoto.com/id/933417662/photo/this-is-too-easy.webp?a=1&b=1&s=612x612&w=0&k=20&c=pYEWkwkOawaes11IKZaBCyf9IeaMHBy04c9iGohR2_o=');
+  background-size: cover;
+  background-position: center;
+  color: #f1f1f1;
+  font-family: 'Poppins', sans-serif;
+  backdrop-filter: blur(8px);
+}
+
+/* Sidebar */
+.profile-sidebar {
+  width: 260px;
+  background: rgba(31, 28, 44, 0.92); /* dark violet glass */
+  padding: 30px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* title upar, menu niche */
+  height: 100%; /* pura sidebar */
+  position: relative;
+  z-index: 2; /* sidebar always top */
+}
+
+.profile-sidebar h2 {
+  font-size: 1.9rem;
+  color: #fdd835; /* bold gold */
+}
+
+/* Menu bottom */
+.profile-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-sidebar li {
+  padding: 12px 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.profile-sidebar li:hover {
+  color: #fbc02d; /* golden hover */
+}
+
+/* Main profile area */
+.profile-main {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background: rgba(40, 30, 60, 0.82); /* glassy violet */
+  position: relative;
+  z-index: 1;
+}
+
+.profile-section {
+  margin-bottom: 40px;
+  background: rgba(63, 48, 84, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.profile-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: #fdd835;
+}
+
+.profile-section p {
+  font-size: 1rem;
+  color: #dddddd;
+}
+
+/* Button */
+.profile-section button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  background: linear-gradient(to right, #fbc02d, #fdd835);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.profile-section button:hover {
+  background: linear-gradient(to right, #fdd835, #fff176);
+  transform: translateY(-2px);
+}
+.address-form {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.address-form h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #333;   /* Heading visible on white */
+}
+
+.address-form label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #444;  /* Dark text */
+}
+
+.address-form input {
+  padding: 10px 12px;
+  border: 1px solid #999;
+  border-radius: 6px;
+  width: 100%;
+  background: #f9fafb;   /* Light gray background */
+  color: #222;
+  font-size: 14px;
+}
+
+.address-form input:focus {
+  outline: none;
+  border-color: #2563eb;   /* Blue highlight */
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.5);
+  background: #fff;
+}
+
+.address-form .row {
+  display: flex;
+  gap: 12px;
+}
+
+.address-form .row div {
+  flex: 1;
+}
+
+.address-form button {
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.address-form button:hover {
+  background: linear-gradient(to right, #1d4ed8, #0f3fad);
+}
+
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}

@@ -1,0 +1,115 @@
+.handbags-page {
+  width: 100%;
+  padding: 60px 20px;
+  background-color: #1e1f32; /* dark background like ExclusivePage */
+  text-align: center;
+}
+
+.handbags-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #ffffff; /* pure white title */
+}
+
+.handbags-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.handbags-card {
+  background-color: #2a2c44; /* dark card background */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #444; /* subtle border in dark theme */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1rem;
+}
+
+.handbags-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.handbags-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.handbags-card h3 {
+  font-size: 1.2rem;
+  color: #ffffff; /* product name white */
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffd54f; /* golden price */
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  font-size: 1rem;
+  color: #ffdd57; /* yellow rating */
+  margin-bottom: 0.8rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.buy-btn,
+.cart-btn,
+.wishlist-btn {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: #444; /* neutral dark button */
+  color: #fff;
+}
+
+.buy-btn:hover,
+.cart-btn:hover,
+.wishlist-btn:hover {
+  background: #666; /* slightly lighter dark on hover */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .handbags-img {
+    height: 140px;
+  }
+}
+.handbags-card {
+  position: relative; /* ❤️ ke liye zaroori */
+}
+
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  color: gray;
+  transition: color 0.3s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.heart.active {
+  color: red;
+}

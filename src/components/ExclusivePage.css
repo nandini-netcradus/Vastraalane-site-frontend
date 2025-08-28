@@ -1,0 +1,127 @@
+.exclusive-page {
+  width: 100%;
+  padding: 60px 20px;
+  background-color: #1e1f32; /* dark background like latest-container */
+  text-align: center;
+  user-select: none;
+}
+
+.exclusive-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #ffffff; /* pure white title */
+}
+
+.exclusive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exclusive-card {
+  position: relative; /* ✅ added: so heart stays inside card */
+  background-color: #2a2c44; /* dark card background */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #444; /* subtle border in dark theme */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1rem;
+}
+
+.exclusive-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.exclusive-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.exclusive-card h3 {
+  font-size: 1.2rem;
+  color: #ffffff; /* product name white */
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffd54f; /* golden price */
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  font-size: 1rem;
+  color: #ffdd57; /* yellow rating */
+  margin-bottom: 0.8rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.buy-btn,
+.cart-btn {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: #444; /* neutral dark button */
+  color: #fff;
+}
+
+.buy-btn:hover,
+.cart-btn:hover {
+  background: #666; /* lighter dark on hover */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .exclusive-img {
+    height: 140px;
+  }
+}
+
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  color: gray; /* default heart color */
+  transition: color 0.3s ease;
+  z-index: 10;/* ✅ added so it stays above image */
+  user-select:none;
+}
+
+.heart.active {
+  color: red; /* wishlist me hone par red */
+}
+
+.heart {
+  color: gray; /* default color */
+}
+
+
+
+.exclusive-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  pointer-events: none; /* ⬅️ image ke upar click disable ho jayega */
+}
