@@ -1,13 +1,14 @@
 import { useState } from "react";
+import config from "../config";
 
 function ProductCard({ product }) {
   const [isWishlisted, setIsWishlisted] = useState(false);
-
+  const api = config.API_URL;
   const toggleWishlist = async () => {
     try {
       if (!isWishlisted) {
         // Add to wishlist
-        await fetch("http://localhost:5000/api/wishlist", {
+        await fetch(`${api}/api/wishlist`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(product),
@@ -15,7 +16,7 @@ function ProductCard({ product }) {
         setIsWishlisted(true);
       } else {
         // Remove from wishlist
-        await fetch(`http://localhost:5000/api/wishlist/${product._id}`, {
+        await fetch(`${api}/api/wishlist/${product._id}`, {
           method: "DELETE",
         });
         setIsWishlisted(false);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import config from "../config";
 function ShippingAddressForm({ userId, onSave }) {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -14,11 +14,11 @@ function ShippingAddressForm({ userId, onSave }) {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  const api = config.API_URL; 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/api/users/${userId}/address`, {
+      const res = await fetch(`${api}/api/users/${userId}/address`, {
         method: "POST",   // ✅ Correct method
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),  // ✅ userId body me bhejna zaruri nahi

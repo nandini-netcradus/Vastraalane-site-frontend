@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 // import { FaHeart } from "react-icons/fa";
-
+import config from "../config";
 
 function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  const api = config.API_URL; 
   // Fetch wishlist items from backend
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/wishlist");
+        const res = await fetch(`${api}/api/wishlist`);
         const data = await res.json();
         console.log(data, "wishlist data");
 
@@ -33,7 +33,7 @@ function Wishlist() {
     const confirmDelete = window.confirm("Remove this item from wishlist?");
     if (!confirmDelete) return;
     try {
-      await fetch(`http://localhost:5000/api/wishlist/${id}`, {
+      await fetch(`${api}/api/wishlist/${id}`, {
         method: "DELETE",
       });
       setWishlist((prev) => prev.filter((item) => item._id !== id));

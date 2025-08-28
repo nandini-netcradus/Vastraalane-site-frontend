@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./AuthForm.css"; 
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import config from "../config";
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
@@ -10,14 +11,12 @@ function AuthForm() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const api = config.API_URL; 
     const url = isLogin
-      ? "http://localhost:5000/api/auth/login"
-      : "http://localhost:5000/api/auth/register";
-
+      ? `${api}/api/auth/login`
+      : `${api}/api/auth/register`;
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

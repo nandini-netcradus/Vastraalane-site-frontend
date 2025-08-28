@@ -41,7 +41,8 @@ import { WishlistProvider } from './WishlistContext';
 
 function App() {
   const userId = Cookies.get("userId");
-
+  const api =process.env.REACT_APP_API_URL
+  console.log(api,"api2");
   return (
     <WishlistProvider>
       <Router>

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-
+import config from "../config";
 function Address() {
   const [address, setAddress] = useState(null);
-
+  const api = config.API_URL; 
+  
   useEffect(() => {
-    fetch("http://localhost:5000/api/address")
+    fetch(`${api}/api/address`)
       .then((res) => res.json())
       .then((data) => setAddress(data.address));
   }, []);

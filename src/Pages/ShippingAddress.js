@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import ShippingAddressForm from "../components/ShippingAddressForm.js";
 import { useNavigate } from "react-router-dom";
-
+import config from "../config";
 function ShippingAddress({ userId }) {
   const [address, setAddress] = useState(null);
   const navigate = useNavigate(); 
-
+  const api = config.API_URL; 
   // ✅ Fetch saved address
   useEffect(() => {
-    fetch(`http://localhost:5000/api/users/${userId}/address`) // ✅ Corrected URL
+    fetch(`${api}/api/users/${userId}/address`) // ✅ Corrected URL
       .then((res) => res.json())
       .then((data) => {
         if (data.shippingAddress) {

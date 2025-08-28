@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-
+import config from "../config";
 function Account() {
   const [account, setAccount] = useState(null);
-
+  const api = config.API_URL; 
   useEffect(() => {
-    fetch("http://localhost:5000/api/account")
+    fetch(`${api}/api/account`)
       .then((res) => res.json())
       .then((data) => setAccount(data.account));
   }, []);

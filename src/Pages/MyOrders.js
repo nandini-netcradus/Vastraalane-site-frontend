@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import config from "../config";
 function MyOrders() {
   const [orders, setOrders] = useState([]);
   const userId = Cookies.get("userId");
-
+  const api = config.API_URL; 
   useEffect(() => {
     if (!userId) return;
 
@@ -11,7 +12,7 @@ function MyOrders() {
   }, [userId]);
 
   const fetchOrders = () => {
-    fetch(`http://localhost:5000/api/orders/user/${userId}`)
+    fetch(`${api}/api/orders/user/${userId}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data || []);
@@ -22,7 +23,7 @@ function MyOrders() {
   const cancelOrder = (orderId) => {
     if (!window.confirm("Are you sure you want to cancel this order?")) return;
 
-    fetch(`http://localhost:5000/api/orders/${orderId}`, {
+    fetch(`${api}/api/orders/${orderId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
