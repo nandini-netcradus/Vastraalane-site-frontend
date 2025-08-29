@@ -1,20 +1,29 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 // import { FaHeart } from "react-icons/fa";
 import config from "../config";
+import Cookies from "js-cookie";
 
 function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const api = config.API_URL; 
+  const api = config.API_URL;
   // Fetch wishlist items from backend
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
-        const res = await fetch(`${api}/api/wishlist`);
+        const token = Cookies.get("token");
+        const res = await fetch(`${api}/api/wishlist`, {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+          },
+          credentials: "include",
+        });
+
         const data = await res.json();
-        console.log(data, "wishlist data");
+        // console.log(data, "wishlist data");
 
         // If backend sends { wishlist: [...] }
         setWishlist(data.wishlist || data);
@@ -49,7 +58,7 @@ function Wishlist() {
   return (
 
     <div style={{ padding: "20px" }}>
-        <button
+      <button
         onClick={() => navigate(-1)}
         style={{
           background: "#8f1583ff",

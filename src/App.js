@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Cookies from "js-cookie";
 
 // Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ProtectedRoute from './components/ProtectedRoute';
-import AuthForm from "./components/AuthForm";
+import AuthForm from "./components/AuthForm";  // ✅ Login Page Import
 
 // Pages
 import Home from './components/Home';
@@ -40,65 +38,49 @@ import ShippingAddress from "./Pages/ShippingAddress";
 import { WishlistProvider } from './WishlistContext';
 
 function App() {
-  const userId = Cookies.get("userId");
-  const api =process.env.REACT_APP_API_URL
-  console.log(api,"api2");
   return (
     <WishlistProvider>
       <Router>
+        <Navbar />
         <Routes>
           {/* Auth Page */}
-          <Route
-            path="/auth"
-            element={Cookies.get("token") ? <Navigate to="/" /> : <AuthForm />}
-          />
+          <Route path="/auth" element={<AuthForm />} />   ✅ FIX
 
-          {/* Protected App Pages */}
-          <Route
-            path="/*"
-            element={
-              <ProtectedRoute>
-                <Navbar />
-                <Routes>
-                  {/* Main Pages */}
-                  <Route path="/" element={<Home />} />
-                  <Route path="/collection" element={<Collection />} />
-                  <Route path="/collections" element={<Collection />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/myprofile" element={<MyProfile />} />
-                  <Route path="/collections/Shop" element={<LatestProducts />} />
-                  <Route path="/exclusive" element={<ExclusivePage />} />
+          {/* Main Pages */}
+          <Route path="/" element={<Home />} />
+          <Route path="/collection" element={<Collection />} />
+          <Route path="/collections" element={<Collection />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/myprofile" element={<MyProfile />} />
+          <Route path="/collections/Shop" element={<LatestProducts />} />
+          <Route path="/exclusive" element={<ExclusivePage />} />
 
-                  {/* Collection Categories */}
-                  <Route path="/collections/accessories" element={<AccessoriesPage />} />
-                  <Route path="/collections/bags" element={<BagsPage />} />
-                  <Route path="/collections/clothing" element={<ClothingPage />} />
-                  <Route path="/collections/footwear" element={<FootwearPage />} />
+          {/* Collection Categories */}
+          <Route path="/collections/accessories" element={<AccessoriesPage />} />
+          <Route path="/collections/bags" element={<BagsPage />} />
+          <Route path="/collections/clothing" element={<ClothingPage />} />
+          <Route path="/collections/footwear" element={<FootwearPage />} />
 
-                  {/* Category pages */}
-                  <Route path="/collections/purses" element={<Purses />} />
-                  <Route path="/collections/girls" element={<Girls />} />
-                  <Route path="/collections/men-shirts" element={<MenShirts />} />
-                  <Route path="/collections/hand-bags" element={<HandBags />} />
-                  <Route path="/collections/perfumes" element={<Perfumes />} />
-                  <Route path="/collections/sunglasses" element={<Sunglasses />} />
+          {/* Category pages */}
+          <Route path="/collections/purses" element={<Purses />} />
+          <Route path="/collections/girls" element={<Girls />} />
+          <Route path="/collections/men-shirts" element={<MenShirts />} />
+          <Route path="/collections/hand-bags" element={<HandBags />} />
+          <Route path="/collections/perfumes" element={<Perfumes />} />
+          <Route path="/collections/sunglasses" element={<Sunglasses />} />
 
-                  {/* Profile Related Pages */}
-                  <Route path="/orders" element={<MyOrders />} />
-                  <Route path="/wishlist" element={<Wishlist />} />
-                  <Route path="/address" element={<Address />} />
-                  <Route path="/account" element={<Accounts />} />
-                  <Route path="/product" element={<Product />} />
-                  <Route path="/shipping-address" element={<ShippingAddress userId={userId} />} />
+          {/* Profile Related Pages */}
+          <Route path="/orders" element={<MyOrders />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/address" element={<Address />} />
+          <Route path="/account" element={<Accounts />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/shipping-address" element={<ShippingAddress />} />
 
-                  {/* Redirect unknown paths to home */}
-                  <Route path="*" element={<Navigate to="/" />} />
-                </Routes>
-                <Footer />
-              </ProtectedRoute>
-            }
-          />
+          {/* Redirect unknown paths to home */}
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Routes>
+        <Footer />
       </Router>
     </WishlistProvider>
   );

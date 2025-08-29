@@ -1,25 +1,33 @@
 import { useState } from "react";
-import "./AuthForm.css"; 
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import config from "../config";
+import Vastraalane from "../assets/Vastraalane.jpg"; 
+import "./AuthForm.css";
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const api = config.API_URL; 
-    const url = isLogin
-      ? `${api}/api/auth/login`
-      : `${api}/api/auth/register`;
+    const api = config.API_URL;
+    const url = isLogin ? `${api}/api/auth/login` : `${api}/api/auth/register`;
+
+    const headers = { "Content-Type": "application/json" };
+    const token = Cookies.get("token");
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+
     const res = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       credentials: "include",
       body: JSON.stringify(formData),
     });
@@ -29,10 +37,9 @@ function AuthForm() {
 
     if (isLogin) {
       if (data.token) {
-        Cookies.set("token", data.token, { expires: 7 }); // expires in 7 days
+        Cookies.set("token", data.token, { expires: 7 });
         Cookies.set("userId", data.user.id, { expires: 7 });
-        // alert("✅ Login successful");
-        navigate('/');
+        navigate("/");
       } else {
         alert("⚠ Login failed: " + (data.error || "Unknown error"));
       }
@@ -47,67 +54,61 @@ function AuthForm() {
   };
 
   return (
-    <div className="auth-form max-w-md mx-auto p-6 border rounded-lg shadow-lg bg-white">
-      <h2 className="text-2xl font-bold mb-4">
-        {isLogin ? "Login" : "Register"}
-      </h2>
+    <div
+      className="auth-page"
+      style={{
+        backgroundImage: `url(${Vastraalane})`,
+      }}
+    >
+      <div className="auth-box">
+        <h2>{isLogin ? "Login" : "Register"}</h2>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        {!isLogin && (
+        <form onSubmit={handleSubmit}>
+          {!isLogin && (
+            <div>
+              <label>Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          )}
+
           <div>
-            <label className="block font-medium">Name</label>
+            <label>Email</label>
             <input
-              type="text"
-              name="name"
-              value={formData.name}
+              type="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
-              className="w-full border p-2 rounded"
               required
             />
           </div>
-        )}
 
-        <div>
-          <label className="block font-medium">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full border p-2 rounded"
-            required
-          />
-        </div>
+          <div>
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div>
-          <label className="block font-medium">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="w-full border p-2 rounded"
-            required
-          />
-        </div>
+          <button type="submit">{isLogin ? "Login" : "Register"}</button>
+        </form>
 
-        <button
-          type="submit"
-          className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-        >
-          {isLogin ? "Login" : "Register"}
-        </button>
-      </form>
-
-      <p className="mt-4 text-sm text-center">
-        {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-        <span
-          onClick={() => setIsLogin(!isLogin)}
-          className="text-blue-600 cursor-pointer hover:underline"
-        >
-          {isLogin ? "Register" : "Login"}
-        </span>
-      </p>
+        <p>
+          {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
+          <span onClick={() => setIsLogin(!isLogin)}>
+            {isLogin ? "Register" : "Login"}
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

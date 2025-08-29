@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom"; 
+// import { Link } from "react-router-dom"; 
 import Banner from './Banner';
 import CategoryCards from './CategoryCards';
 import PopularProducts from './PopularProducts';
@@ -20,12 +20,12 @@ function Home() {
           Your browser does not support the video tag.
         </video>
         <div className="video-overlay">
-          <h2 className="video-title">Latest Collection</h2>
+          {/* <h2 className="video-title">Latest Collection</h2> */}
           <p className="video-subtitle">Elevate your style with our newest arrivals</p>
           
-          <Link to="/exclusive">
+          {/* <Link to="/exclusive">
             <button className="video-btn">Check Exclusive Collection</button>
-          </Link>
+          </Link> */}
         </div>
       </div>
 

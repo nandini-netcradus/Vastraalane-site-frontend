@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import config from "../src/config";
+import config from "./config";
 export const WishlistContext = createContext();
 
 export const WishlistProvider = ({ children }) => {

@@ -44,7 +44,7 @@ function ExclusivePage() {
   const handleWishlistToggle = (product) => {
     if (wishlistIds.includes(product.id)) {
       setWishlistIds(wishlistIds.filter((id) => id !== product.id));
-      console.log("Removed from wishlist:", product);
+      // console.log("Removed from wishlist:", product);
     } else {
       setWishlistIds([...wishlistIds, product.id]);
       addToWishlist({
@@ -54,7 +54,7 @@ function ExclusivePage() {
         rating: product.rating,
         image: product.img
       });
-      console.log("Added to wishlist:", product);
+      // console.log("Added to wishlist:", product);
     }
   };
 

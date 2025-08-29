@@ -53,7 +53,7 @@ const PopularProducts = () => {
     if (wishlistIds.includes(product.id)) {
       // already in wishlist → remove
       setWishlistIds(wishlistIds.filter((id) => id !== product.id));
-      console.log("Removed from wishlist:", product);
+      // console.log("Removed from wishlist:", product);
     } else {
       // not in wishlist → add
       setWishlistIds([...wishlistIds, product.id]);
@@ -64,7 +64,7 @@ const PopularProducts = () => {
         rating: product.rating,
         image: product.image
       });
-      console.log("Added to wishlist:", product);
+      // console.log("Added to wishlist:", product);
     }
   };
 
