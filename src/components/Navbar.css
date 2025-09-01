@@ -15,6 +15,7 @@
   margin-top: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  
 }
 
 /* Logo styling (Text logo) */
@@ -25,6 +26,8 @@
   font-family: 'Poppins', sans-serif;
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
 }
 
 /* Navbar logo image */
@@ -95,47 +98,93 @@
 }
 
 /* Mobile styles */
-@media screen and (max-width: 768px) {
+/* Hide burger on desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* Hide burger on desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* Default nav-links (desktop) */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile styles */
+/* Hide burger on desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* Desktop nav-links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
   .menu-toggle {
     display: block;
-    font-size: 1rem;
+    font-size: 1.8rem;
     color: #fff;
     cursor: pointer;
     z-index: 200;
   }
 
+  /* Side drawer base */
   .nav-links {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: fixed;
+    top: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.95);
-    width: 100%;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-    z-index: 100;
-    gap: 1rem;
+    height: 100vh;
+    width: 150px;                /* adjust width */
+    background: rgba(94, 94, 94, 0.95);
+    padding: 1rem 1rem;
+    transform: translateX(100%); /* hidden by default */
+    transition: transform 0.3s ease-in-out;
+    z-index: 150;
+    gap: 1.5rem;
   }
 
+  /* Open state → slide in */
   .nav-links.open {
-    max-height: 300px;
-    padding: 1rem;
+    transform: translateX(0);
   }
 
   .nav-links li {
-    width: 100%;
     text-align: left;
   }
 
   .nav-links li a {
-    width: 100%;
-    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #fff;
+    font-size: 1.1rem;
   }
 
+  .nav-links li a:hover {
+    color: #dcdbd9;
+  }
+
+  .nav-icon {
+    font-size: 1.5rem;
+  }
 }
+
+
 
 

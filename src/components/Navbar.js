@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './Navbar.css';
-import LOGOSTYLE1 from '../assets/LOGOSTYLE1.png';
-import { FaHome, FaThLarge, FaInfoCircle, FaUser, FaBars, FaTimes } from 'react-icons/fa';
+import { useState } from "react";
+import {
+  FaBars,
+  FaHome,
+  FaInfoCircle,
+  FaThLarge,
+  FaTimes,
+  FaUser,
+} from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import LOGOSTYLE1 from "../assets/LOGOSTYLE1.png";
+import "./Navbar.css";
 
 const Navbar = () => {
   const location = useLocation();
@@ -10,7 +17,7 @@ const Navbar = () => {
 
   // const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
-  console.log(menuOpen,"menuopen");
+  console.log(menuOpen, "menuopen");
   return (
     <nav className="navbar">
       <div className="logo">
@@ -18,29 +25,27 @@ const Navbar = () => {
           <img src={LOGOSTYLE1} alt="Logo" className="logo-img" />
         </Link>
       </div>
-
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-
-      <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-        <li className={location.pathname === '/' ? 'active' : ''}>
+      <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <li className={location.pathname === "/" ? "active" : ""}>
           <Link to="/" onClick={closeMenu}>
             <FaHome className="nav-icon" />
           </Link>
         </li>
-        <li className={location.pathname === '/collection' ? 'active' : ''}>
+        <li className={location.pathname === "/collection" ? "active" : ""}>
           <Link to="/collection" onClick={closeMenu}>
             <FaThLarge className="nav-icon" />
           </Link>
         </li>
-        <li className={location.pathname === '/about' ? 'active' : ''}>
+        <li className={location.pathname === "/about" ? "active" : ""}>
           <Link to="/about" onClick={closeMenu}>
             <FaInfoCircle className="nav-icon" />
           </Link>
         </li>
-        <li className={location.pathname === '/myprofile' ? 'active' : ''}>
+        <li className={location.pathname === "/myprofile" ? "active" : ""}>
           <Link to="/myprofile" onClick={closeMenu}>
             <FaUser className="nav-icon" />
           </Link>
