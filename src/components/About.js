@@ -8,16 +8,16 @@ const About = () => {
     <div className="about-container" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="about-overlay">
         <div className="about-left">
-          <h1>About Vastraalena</h1>
+          <h1>About Vastraalane</h1>
           <p>
-            Vastraalena is your destination for timeless elegance and contemporary fashion.
+            Vastraalane is your destination for timeless elegance and contemporary fashion.
             We specialize in ethnic and fusion wear that brings tradition and modern aesthetics together.
           </p>
 
           <div className="about-section">
             <h2>Terms & Conditions</h2>
             <p>
-              By shopping with Vastraalena, you agree to our terms and conditions.  
+              By shopping with Vastraalane, you agree to our terms and conditions.  
               All products are carefully inspected before dispatch.  
               Prices, offers, and product availability are subject to change without prior notice.  
               Any misuse of our content, images, or brand name is strictly prohibited.  
